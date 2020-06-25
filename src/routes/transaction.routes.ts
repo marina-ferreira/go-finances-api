@@ -12,7 +12,8 @@ const createTransactionService = new CreateTransactionService(
 
 transactionRouter.get('/', (request, response) => {
   try {
-    // TODO
+    const transactions = transactionsRepository.all()
+    return response.json(transactions)
   } catch (err) {
     return response.status(400).json({ error: err.message })
   }
